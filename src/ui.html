@@ -1,0 +1,75 @@
+
+<style type="text/css">
+  <%= htmlWebpackPlugin.options.cssContent %>
+</style>
+
+<style>
+
+.title {
+  margin-top:0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.button-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  gap: var(--size-xsmall);
+}
+
+.button-row button {
+  flex-grow: 1;
+  text-align: center;
+  justify-content: center;
+}
+
+ul {
+  padding-left: 1em;
+}
+
+</style>
+
+<main class="p-small">
+
+  <section id="pluginIntro">
+    <h3 class="title">CSV to Sticky</h3>
+    <p class="type type--small">Create a FigJam sticky note for each row of a <strong>*single* column</strong>in a CSV (comma-separated values) spreadsheet with <strong>no header rows</strong>.</p>
+    <p class="type type--small "><a href="#instructions" class='button button--tertiary'>Instructions</a></p>
+  </section>
+
+  <section id="inputData">
+    <h4>Paste your data</h4>
+    <p><textarea id="csvInput" class="textarea" rows="10" spellcheck="false" placeholder="Paste your CSV text here"></textarea></p>
+    <div class="button-row">
+      <button id="create" class='button button--primary'>Create stickies</button>
+      <button id="cancel" class='button button--secondary'>Cancel</button>
+    </div>
+  </section>
+
+  <section id="instructions" class="mt-xlarge">
+    <h4>Instructions</h4>
+    <ul class="type type--small">
+      <li>Your CSV file should have a single column with no headers rows.</li>
+      <li>Open your .csv file in plain text editor like TextEdit.app (Mac) or Notepad (Windows).</li>
+      <li>Copy everything and paste the text into the field below, then click `Create stickies`.</li>
+    </ul>
+  </section>  
+
+</main>
+
+<script>
+
+document.getElementById('create').onclick = () => {
+  const csvData = document.getElementById('csvInput').value;
+  parent.postMessage({ pluginMessage: { type: 'create-stickies', csvData } }, '*')
+}
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script>

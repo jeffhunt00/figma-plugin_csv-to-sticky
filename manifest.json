@@ -1,0 +1,17 @@
+{
+  "name": "CSV to Sticky",
+  "id": "1306352167383929227",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": [
+    "figjam"
+  ],
+  "ui": "dist/ui.html",
+  "networkAccess": {
+    "allowedDomains": [
+      "https://rsms.me"
+    ]
+  }
+}
