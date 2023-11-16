@@ -1,2 +1,2 @@
-# figma-plugin_csv-to-sticky
-Figma Plugin: Convert a CSV to FigJam Sticky Notes
+# Figma: CSV to Sticky
+A Figma plugin to convert a CSV to FigJam Sticky Notes.
